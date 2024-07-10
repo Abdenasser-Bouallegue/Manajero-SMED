@@ -21,14 +21,12 @@ import java.util.Date;
 public class Project implements Serializable {
     @Id
     private String idProject;
-
-
     @Field(name="project-name")
     private String nameProject;
+    private String projectOwner="IPact";
     private LocalDateTime createdDate=LocalDateTime.now();
 
     private Long estimatedTime;
-
 
     @JsonFormat(pattern = "yyyy-MM-dd")
 
