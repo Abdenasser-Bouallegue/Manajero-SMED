@@ -28,8 +28,6 @@ public class Project implements Serializable {
 
     private Long estimatedTime;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-
     private  Date deadline;
 
 
