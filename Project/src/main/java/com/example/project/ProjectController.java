@@ -35,10 +35,10 @@ public class ProjectController {
         return projectService.getProjectById(id);
     }
 
-    @PutMapping("/update/{id}")
-    public Project updateProject( @PathVariable String id ,@RequestBody Project project){
+    @PutMapping("/update")
+    public Project update(@RequestBody Project project){
 
-        return projectService.updateProject(id,project);
+        return projectService.update(project);
     }
 
     @DeleteMapping("/remove/{project-id}")

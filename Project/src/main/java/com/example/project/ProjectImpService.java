@@ -26,18 +26,8 @@ public class ProjectImpService implements IProjectService {
         return projectRepository.findById(id).orElse(null);
     }
 
-    public Project updateProject(String id, Project project) {
-        Optional<Project> optionalProject = projectRepository.findById(id);
-        if (optionalProject.isPresent()) {
-            Project existingProject = optionalProject.get();
-            existingProject.setNameProject(project.getNameProject());
-            existingProject.setDeadline(project.getDeadline());
-            existingProject.setEstimatedTime(project.getEstimatedTime());
-
-            return projectRepository.save(existingProject);
-        } else {
-            throw new RuntimeException("Project not found with id " + id);
-        }
+    public Project update(Project project){
+        return projectRepository.save(project);
     }
 
     public void deleteProject(String id) {
