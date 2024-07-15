@@ -1,0 +1,38 @@
+package com.example.project;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class TutoImpService implements ITutoService {
+    @Autowired
+    private TutoRepository tutoRepository;
+
+
+    @Override
+    public Tuto createTuto(Tuto tuto) {
+        return tutoRepository.save(tuto);
+    }
+    public List<Tuto> getAllTutos() {
+
+        return tutoRepository.findAll();
+    }
+
+    public Tuto getTutoById(String id) {
+
+        return tutoRepository.findById(id).orElse(null);
+    }
+
+    public Tuto update(Tuto tuto){
+        return tutoRepository.save(tuto);
+    }
+
+    public void deleteTuto(String id) {
+
+        tutoRepository.deleteById(id);
+    }
+
+
+}
