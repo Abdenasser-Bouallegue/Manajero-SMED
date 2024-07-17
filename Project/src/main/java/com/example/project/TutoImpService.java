@@ -20,10 +20,6 @@ public class TutoImpService implements ITutoService {
         return tutoRepository.findAll();
     }
 
-    public Tuto getTutoById(String id) {
-
-        return tutoRepository.findById(id).orElse(null);
-    }
 
     public Tuto update(Tuto tuto){
         return tutoRepository.save(tuto);
@@ -33,6 +29,8 @@ public class TutoImpService implements ITutoService {
 
         tutoRepository.deleteById(id);
     }
-
+    public Tuto getLatestTuto() {
+        return tutoRepository.findTopByOrderByCreatedDateDesc();
+    }
 
 }

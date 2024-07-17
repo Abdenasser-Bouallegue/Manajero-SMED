@@ -1,5 +1,7 @@
 package com.example.project;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,6 +25,12 @@ public class Tuto implements Serializable {
     private String how;
     private String what_if;
     private LocalDateTime createdDate=LocalDateTime.now();
+    @Lob
+    @Column(length = 209715200)
+    private byte[] image_what;
+    @Lob
+    @Column(length = 209715200)
+    private byte[] image_how;
 
 
 
