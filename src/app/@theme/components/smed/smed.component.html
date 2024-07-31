@@ -1,0 +1,55 @@
+<div class="smed-tutorial" *ngIf="latestTutorial">
+  <div class="stepper">
+    <div
+      class="step"
+      *ngFor="let step of steps"
+      (click)="activateStep(step.key)"
+      [class.active]="activeStep === step.key">
+      <div class="step-label">
+        {{ step.label }}
+      </div>
+    </div>
+  </div>
+
+  <div class="Bot" style="float: right;">
+    <button (click)="editTutorial(latestTutorial)" class="edit-button">
+      <span class="line-md--edit-twotone"></span>
+    </button>
+
+
+
+  <button (click)="confirmDelete(latestTutorial?.idTuto)" class="delete-button">
+    <span class="icon-park--delete-one"></span>
+  </button>
+</div>
+
+
+  <br><br>
+
+  <ng-container *ngFor="let step of steps">
+    <section [ngClass]="step.key" *ngIf="activeStep === step.key">
+      <h2 class="why-title gradient-blue">{{ step.label }}</h2>
+      <p class="why-text">{{ latestTutorial[step.key] }}</p>
+
+      <!-- Display images for 'how' and 'what' steps -->
+      <ng-container *ngIf="step.key === 'how' && latestTutorial.image_how">
+        <img latestTutorial.image_how class="step-image" [src]="'data:image/jpeg;base64, ' + latestTutorial.image_how" alt="how Image">
+      </ng-container>
+
+      <ng-container *ngIf="step.key === 'what' && latestTutorial.image_what">
+        <img latestTutorial.image_what class="step-image" [src]="'data:image/jpeg;base64, ' + latestTutorial.image_what" alt="What Image">
+      </ng-container>
+    </section>
+  </ng-container>
+
+  <div class="navigation-buttons">
+    <button (click)="previousStep()" [disabled]="isFirstStep()">Previous</button>
+    <a [routerLink]="['/pages/lean/smed/list']" routerLinkActive="router-link-active">
+      <button>Use This Methodology</button>
+    </a>
+    <a [routerLink]="['/pages/lean/smed/newtuto']" routerLinkActive="router-link-active">
+      <button>Create New Tutorial</button>
+    </a>
+    <button (click)="nextStep()" [disabled]="isLastStep()">Next</button>
+  </div>
+</div>

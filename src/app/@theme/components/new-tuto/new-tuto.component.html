@@ -1,0 +1,94 @@
+<form (ngSubmit)="onSubmit()" #tutoForm="ngForm">
+  <div>
+    <label for="how">How:</label>
+    <input
+      type="text"
+      id="how"
+      name="how"
+      [(ngModel)]="newTuto.how"
+      #how="ngModel"
+      required
+      minlength="10"
+    />
+    <div *ngIf="how.invalid && (how.dirty || how.touched)" class="error">
+      <div *ngIf="how.errors?.required">How is required.</div>
+      <div *ngIf="how.errors?.minlength">How must be at least 10 characters long.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="why">Why:</label>
+    <input
+      type="text"
+      id="why"
+      name="why"
+      [(ngModel)]="newTuto.why"
+      #why="ngModel"
+      required
+    />
+    <div *ngIf="why.invalid && (why.dirty || why.touched)" class="error">
+      <div *ngIf="why.errors?.required">Why is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="what">What:</label>
+    <input
+      type="text"
+      id="what"
+      name="what"
+      [(ngModel)]="newTuto.what"
+      #what="ngModel"
+      required
+    />
+    <div *ngIf="what.invalid && (what.dirty || what.touched)" class="error">
+      <div *ngIf="what.errors?.required">What is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="what_if">What If:</label>
+    <input
+      type="text"
+      id="what_if"
+      name="what_if"
+      [(ngModel)]="newTuto.what_if"
+      #what_if="ngModel"
+      required
+    />
+    <div *ngIf="what_if.invalid && (what_if.dirty || what_if.touched)" class="error">
+      <div *ngIf="what_if.errors?.required">What If is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="image_how">Image How:</label>
+    <input
+      type="file"
+      id="image_how"
+      name="image_how"
+      (change)="onFileSelected($event, 'image_how')"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="image_what">Image What:</label>
+    <input
+      type="file"
+      id="image_what"
+      name="image_what"
+      (change)="onFileSelected($event, 'image_what')"
+      required
+    />
+  </div>
+
+  <button type="submit" [disabled]="tutoForm.invalid">Submit</button>
+</form>
+
+<style>
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+</style>

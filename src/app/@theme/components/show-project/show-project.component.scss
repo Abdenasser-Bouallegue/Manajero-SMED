@@ -1,0 +1,261 @@
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-xl-9 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}
+
+/* Profile Details Styles */
+.settings-widget {
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-heading {
+  margin-bottom: 20px;
+}
+
+.profile-heading h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-heading p {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.add-new-address {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.wallet-radio-blk {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.custom_radio {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  display: inline-block;
+  color: #6c757d;
+}
+
+.custom_radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #e9ecef;
+  border-radius: 50%;
+}
+
+.custom_radio input:checked ~ .checkmark {
+  background-color: #007bff;
+}
+
+.custom_radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.address-edits {
+  margin-left: auto;
+}
+
+.edit-btn-blk {
+  color: #6c757d;
+}
+
+.edit-btn-blk:hover {
+  color: #495057;
+}
+
+@media (max-width: 576px) {
+  .address-edits {
+      display: none;
+  }
+}
+.create-project-btn {
+  background-color: #FFA500; /* Orange background color */
+  border: none;             /* Remove default border */
+  color: white;             /* White text color */
+  padding: 10px 20px;       /* Padding for the button */
+  font-size: 16px;          /* Font size for the button text */
+  border-radius: 5px;       /* Rounded corners */
+  cursor: pointer;          /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.create-project-btn:hover {
+  background-color: #FF8C00; /* Darker orange on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.create-project-btn:active {
+  background-color: #E07B00; /* Even darker orange when active */
+  transform: translateY(1px); /* Button pressed effect */
+}
+.why-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+.row-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Align items with space between them */
+}
+
+.edit-new-address {
+  margin-right: 20px; /* Optional: Add margin between sections */
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.robotic-font {
+    font-family: 'Roboto', sans-serif; /* Robotic style font */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: 700; /* Adjust font weight as needed */
+    color: #333; /* Adjust font color */
+    margin: 0; /* Remove default margin */
+}
+/* General table styling */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table tbody tr {
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+.table tbody td {
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.table a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.table .form-check-input {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.table .badge {
+  padding: 0.5em 0.75em;
+  font-size: 0.875em;
+  font-weight: 600;
+  border-radius: 0.2em;
+}
+
+.table .badge.info-low {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.table .feather-more-vertical {
+  color: #6c757d;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.table .feather-more-vertical:hover {
+  color: #343a40;
+}
+
+/* Custom checkbox styling */
+.form-check-input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.25rem;
+  margin-left: 0;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.form-check-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table thead {
+      display: none;
+  }
+
+  .table tbody td {
+      display: block;
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+  }
+
+  .table tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      padding-right: 1rem;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: 600;
+  }
+}
+

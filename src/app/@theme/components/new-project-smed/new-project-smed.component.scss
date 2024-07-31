@@ -1,0 +1,22 @@
+.send_btn {
+  border-radius:4px  !important;
+  background-color:#ff5360  !important;
+  border: 0 !important;
+  color: white !important;
+}
+
+.warning-message {
+background-color: #ff5360;
+color: white;
+padding: 1px;
+margin-bottom: 4px;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 10px !important;
+}
+
