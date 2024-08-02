@@ -1,0 +1,35 @@
+<div class="task-details" *ngIf="taskDetails">
+  <h2>Task Details</h2>
+  <div *ngIf="isLoading" class="text-info">Loading task details...</div>
+  <ng-container *ngIf="!isLoading && taskDetails">
+    <div class="task-detail-item">
+      <span class="task-detail-label">Task Name:</span>
+      <span class="task-detail-value">{{ taskDetails.taskName }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Description:</span>
+      <span class="task-detail-value">{{ taskDetails.desc }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Estimated Time:</span>
+      <span class="task-detail-value">{{ taskDetails.estimatedTime }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Deadline:</span>
+      <span class="task-detail-value">{{ taskDetails.deadline | date }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Employer:</span>
+      <span class="task-detail-value">{{ taskDetails.employer }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Task Type:</span>
+      <span class="task-detail-value">{{ taskDetails.taskType }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Project ID:</span>
+      <span class="task-detail-value">{{ taskDetails.projectId }}</span>
+    </div>
+  </ng-container>
+  <div *ngIf="!isLoading && !taskDetails" class="text-danger">Task details not found.</div>
+</div>

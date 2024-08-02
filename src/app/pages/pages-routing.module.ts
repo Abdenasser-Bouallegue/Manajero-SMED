@@ -11,6 +11,7 @@ import { NewProjectSMEDComponent } from '../@theme/components/new-project-smed/n
 import { ShowProjectComponent } from '../@theme/components/show-project/show-project.component';
 import { NewTutoComponent } from '../@theme/components/new-tuto/new-tuto.component';
 import { TaskComponent } from '../@theme/components/task/task.component';
+import { TaskDetailsComponent } from '../@theme/components/task-details/task-details.component';
 
 const routes: Routes = [{
   path: '',
@@ -54,6 +55,13 @@ const routes: Routes = [{
     {
     path: 'lean/smed/task/:projectId',
       component: TaskComponent,
+      data: {
+        title: 'Show SMED Project'
+      },
+    },
+    {
+      path: 'lean/smed/task/show/:id',
+      component: TaskDetailsComponent,
       data: {
         title: 'Show SMED Project'
       },

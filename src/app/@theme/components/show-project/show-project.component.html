@@ -103,8 +103,13 @@
               <td>{{ task.taskName }}</td>
               <td>{{ task.manager }}</td>
               <td><span class="badge info-low">{{ task.createdDate | date }}</span></td>
-              <td>{{ task.deadline | date }}</td>
+              <td><span class="badge info-low2">{{ task.deadline | date }}</span></td>
               <td>{{ task.taskType }}</td>
+              <td>
+                <a [routerLink]="['/pages/lean/smed/task/show', task.idTask]">
+                  <span class="mdi--show"></span>
+                </a>
+              </td>
               <td>
                 <button (click)="openPopupUpdate(task)" class="edit-button">
                   <span class="lucide--edit" ></span>

@@ -23,9 +23,10 @@ import {
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './@theme/components/task/task.component';
+import { TaskDetailsComponent } from './@theme/components/task-details/task-details.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent],
+  declarations: [AppComponent, TaskComponent, TaskDetailsComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
