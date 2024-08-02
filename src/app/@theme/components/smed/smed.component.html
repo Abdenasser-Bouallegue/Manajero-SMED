@@ -12,17 +12,14 @@
   </div>
 
   <div class="Bot" style="float: right;">
-    <button (click)="editTutorial(latestTutorial)" class="edit-button">
+    <button (click)="openPopupUpdate(latestTutorial)" class="edit-button">
       <span class="line-md--edit-twotone"></span>
     </button>
 
-
-
-  <button (click)="confirmDelete(latestTutorial?.idTuto)" class="delete-button">
-    <span class="icon-park--delete-one"></span>
-  </button>
-</div>
-
+    <button (click)="confirmDelete(latestTutorial?.idTuto)" class="delete-button">
+      <span class="icon-park--delete-one"></span>
+    </button>
+  </div>
 
   <br><br>
 
@@ -33,23 +30,48 @@
 
       <!-- Display images for 'how' and 'what' steps -->
       <ng-container *ngIf="step.key === 'how' && latestTutorial.image_how">
-        <img latestTutorial.image_how class="step-image" [src]="'data:image/jpeg;base64, ' + latestTutorial.image_how" alt="how Image">
+        <img [src]="'data:image/jpeg;base64, ' + latestTutorial.image_how" class="step-image" alt="how Image">
       </ng-container>
 
-      <ng-container *ngIf="step.key === 'what' && latestTutorial.image_what">
-        <img latestTutorial.image_what class="step-image" [src]="'data:image/jpeg;base64, ' + latestTutorial.image_what" alt="What Image">
-      </ng-container>
-    </section>
-  </ng-container>
+      <ng-container *ngIf="step.key === '
+      what' && latestTutorial.image_what">
+      <img [src]="'data:image/jpeg;base64, ' + latestTutorial.image_what" class="step-image" alt="What Image">
+    </ng-container>
+  </section>
+</ng-container>
 
-  <div class="navigation-buttons">
-    <button (click)="previousStep()" [disabled]="isFirstStep()">Previous</button>
-    <a [routerLink]="['/pages/lean/smed/list']" routerLinkActive="router-link-active">
-      <button>Use This Methodology</button>
-    </a>
-    <a [routerLink]="['/pages/lean/smed/newtuto']" routerLinkActive="router-link-active">
-      <button>Create New Tutorial</button>
-    </a>
-    <button (click)="nextStep()" [disabled]="isLastStep()">Next</button>
-  </div>
+<div class="navigation-buttons">
+  <button (click)="previousStep()" [disabled]="isFirstStep()">Previous</button>
+  <a [routerLink]="['/pages/lean/smed/list']" routerLinkActive="router-link-active">
+    <button>Use This Methodology</button>
+  </a>
+  <a [routerLink]="['/pages/lean/smed/newtuto']" routerLinkActive="router-link-active">
+    <button>Create New Tutorial</button>
+  </a>
+  <button (click)="nextStep()" [disabled]="isLastStep()">Next</button>
+</div>
+
+<!-- Popup for editing tutorial -->
+<div class="edit-popup" *ngIf="showPopup">
+  <h2>Edit Tutorial</h2>
+  <form (ngSubmit)="updateTuto()">
+    <label for="why">Why:</label>
+    <input id="why" [(ngModel)]="tutoToUpdate.why" name="why" required>
+
+    <label for="what">What:</label>
+    <input id="what" [(ngModel)]="tutoToUpdate.what" name="what" required>
+
+    <label for="how">How:</label>
+    <input id="how" [(ngModel)]="tutoToUpdate.how" name="how" required>
+
+    <label for="what_if">What If:</label>
+    <input id="what_if" [(ngModel)]="tutoToUpdate.what_if" name="what_if" required>
+
+    <!-- Add more fields as necessary -->
+
+    <button type="submit">Save</button>
+
+    <button type="button" (click)="closePopupUpdate()">Cancel</button>
+  </form>
+</div>
 </div>

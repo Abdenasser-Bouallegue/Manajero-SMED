@@ -8,8 +8,18 @@ import { SmedService } from '../../../../services/smed.service';
   styleUrls: ['./smed.component.scss']
 })
 export class SMEDComponent implements OnInit {
+  tutoToUpdate: tutoSMED = {
+    idTuto: "",
+    why: '',
+    what: '',
+    how: '',
+    what_if: '',
+    image_how: null,
+    image_what: null,
+  };
   tuto: tutoSMED[] = [];
-  selectedTutorial: tutoSMED;
+  showPopup: boolean = false;
+  isPopupUpdateOpen = false;
   latestTutorial: tutoSMED | undefined;
   steps = [
     { key: 'why', label: 'Why', title: 'Why Step', content: 'Why content' },
@@ -87,39 +97,30 @@ export class SMEDComponent implements OnInit {
     );
   }
 
-  updateTutoSmed(updatedTuto: tutoSMED): void {
-    if (!updatedTuto.idTuto) {
-      console.error('No tutorial ID provided for update');
-      return;
-    }
+  openPopupUpdate(tutorial: tutoSMED): void {
+    this.showPopup = true;
+    this.tutoToUpdate = { ...tutorial };
+    this.isPopupUpdateOpen = true;
+  }
 
-    this.tutoSmedService.updatetutoSMED(updatedTuto.idTuto, updatedTuto).subscribe(
-      (updatedTutorial: tutoSMED) => {
-        console.log('Tutorial updated successfully:', updatedTutorial);
-        this.latestTutorial = updatedTutorial;
-        this.loadLatestTutorial(); // Optionally reload the latest tutorial
+  closePopupUpdate(): void {
+    this.showPopup = false;
+  }
+
+
+  updateTuto(): void {
+    console.log(this.tutoToUpdate);
+
+    this.tutoSmedService.updatetutoSMED(this.tutoToUpdate.idTuto, this.tutoToUpdate).subscribe(
+      (updatedProject: tutoSMED) => {
+        console.log('Tutorial updated successfully:', updatedProject);
+        this.showPopup = false;
+        this.loadLatestTutorial();
+        window.location.reload();
       },
       (error) => {
         console.error('Error updating tutorial:', error);
       }
     );
   }
-  editTutorial(tutorial: tutoSMED) {
-    this.selectedTutorial = { ...tutorial }; // Clone the tutorial to edit
-  }
-
-  onSubmit() {
-    if (this.selectedTutorial) {
-      this.tutoSmedService.updatetutoSMED(this.selectedTutorial.idTuto, this.selectedTutorial).subscribe(
-        (updatedTutorial) => {
-          console.log('Tutorial updated successfully', updatedTutorial);
-          this.selectedTutorial = null;
-          this.loadLatestTutorial(); // Refresh the latest tutorial
-        },
-        (error) => {
-          console.error('Error updating tutorial', error);
-        }
-      );
-    }}
-
 }

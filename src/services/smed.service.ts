@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { projectSmed } from '../models/projectSmed';
 import { Observable } from 'rxjs';
+import { task } from '../models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class SmedService {
   private apiUrl = 'http://localhost:8081/project';
   private apiUrlTuto = 'http://localhost:8081/tuto';
+  private apiUrlTask = 'http://localhost:8081/task';
 
   constructor(private http: HttpClient) {}
 
@@ -53,5 +55,21 @@ export class SmedService {
 
   getLatestTutorial(): Observable<tutoSMED> {
     return this.http.get<tutoSMED>(`${this.apiUrlTuto}/latest`);
+  }
+  //taskService
+  addtask(formData: FormData): Observable<task> {
+    return this.http.post<task>(`${this.apiUrlTask}/addTask`, formData);
+  }
+  deleteTask(idTask: string): Observable<any> {
+    return this.http.delete(`${this.apiUrlTask}/remove/${idTask}`);
+  }
+
+  updateTask(idTask: string, taskSMED: task): Observable<task> {
+    const url = `${this.apiUrlTask}/update`;
+    return this.http.put<task>(url, taskSMED );
+  }
+  getTaskById(idTask: string): Observable<task> {
+    const url = `${this.apiUrlTask}/getTaskById/${idTask}`;
+    return this.http.get<task>(url);
   }
 }
