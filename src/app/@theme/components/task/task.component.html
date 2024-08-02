@@ -1,0 +1,24 @@
+<!-- src/app/pages/task/task.component.html -->
+<form [formGroup]="TaskForm" (ngSubmit)="addTask()">
+  <label for="taskName">Task Name:</label>
+  <input id="taskName" formControlName="taskName">
+
+  <label for="desc">Description:</label>
+  <textarea id="desc" formControlName="desc"></textarea>
+
+  <label for="estimatedTime">Estimated Time:</label>
+  <input id="estimatedTime" type="number" formControlName="estimatedTime">
+
+  <label for="Deadline">Deadline:</label>
+  <input id="Deadline" type="date" formControlName="Deadline">
+
+  <label for="Employer">Employer:</label>
+  <input id="Employer" formControlName="Employer">
+
+  <label for="taskType">Task Type:</label>
+  <select id="taskType" formControlName="taskType">
+    <option *ngFor="let type of taskTypes" [value]="type">{{ type }}</option>
+  </select>
+
+  <button type="submit">Add Task</button>
+</form>

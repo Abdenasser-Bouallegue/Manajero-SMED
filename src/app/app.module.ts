@@ -22,9 +22,10 @@ import {
 } from '@nebular/theme';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskComponent } from './@theme/components/task/task.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TaskComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

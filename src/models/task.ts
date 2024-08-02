@@ -10,4 +10,5 @@ export interface task {
   Deadline: Date;
   Employer: string;
   taskType:taskType;
+  projectId?: string;
 }

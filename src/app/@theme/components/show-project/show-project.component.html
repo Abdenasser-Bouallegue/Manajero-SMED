@@ -42,8 +42,9 @@
         </div>
 
         <h6 class="robotic-font">Estimated time: {{ projectDetails?.estimatedTime || 'Loading...' }}</h6>
-
+        <a [routerLink]="['/pages/lean/smed/task', projectDetails?.idProject]" routerLinkActive="router-link-active">
           <button class="create-project-btn">New Task</button>
+        </a>
 
           <!-- Handle case where projectDetails is null or undefined -->
           <div *ngIf="!isLoading && !projectDetails" class="text-danger">

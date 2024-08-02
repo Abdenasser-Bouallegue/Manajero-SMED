@@ -36,6 +36,7 @@ export class SmedService {
     const url = `${this.apiUrl}/getProjectById/${idProject}`;
     return this.http.get<projectSmed>(url);
   }
+
   //TutoService
   addtutotSMED(formData: FormData): Observable<tutoSMED> {
     return this.http.post<tutoSMED>(`${this.apiUrlTuto}/addTuto`, formData);
@@ -57,8 +58,10 @@ export class SmedService {
     return this.http.get<tutoSMED>(`${this.apiUrlTuto}/latest`);
   }
   //taskService
-  addtask(formData: FormData): Observable<task> {
-    return this.http.post<task>(`${this.apiUrlTask}/addTask`, formData);
+  addTask(task: task): Observable<task> {
+    return this.http.post<task>(`${this.apiUrlTask}/addTask`, task, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
   }
   deleteTask(idTask: string): Observable<any> {
     return this.http.delete(`${this.apiUrlTask}/remove/${idTask}`);
@@ -71,5 +74,9 @@ export class SmedService {
   getTaskById(idTask: string): Observable<task> {
     const url = `${this.apiUrlTask}/getTaskById/${idTask}`;
     return this.http.get<task>(url);
+  }
+  getTasksByProjectId(idProject: string): Observable<Task[]> {
+    const url = `${this.apiUrl}/${idProject}/tasks`;
+    return this.http.get<Task[]>(url);
   }
 }
