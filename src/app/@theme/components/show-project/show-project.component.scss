@@ -299,3 +299,146 @@
   mask-size: 100% 100%;
 }
 
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.popup-body .form-group {
+  margin-bottom: 10px;
+}
+
+.popup-body .form-group label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.9rem;
+}
+
+.popup-body .form-group input,
+.popup-body .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+}
+
+.popup-body .form-group textarea {
+  resize: vertical;
+}
+
+.popup-body .btn {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.popup-body .btn:hover {
+  background: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .popup-content {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .popup-header h3 {
+    font-size: 1rem;
+  }
+
+  .close-btn {
+    font-size: 1rem;
+  }
+
+  .popup-body .form-group {
+    margin-bottom: 8px;
+  }
+
+  .popup-body .form-group input,
+  .popup-body .form-group textarea {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .popup-body .btn {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    max-width: 100%;
+    padding: 8px;
+  }
+
+  .popup-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .close-btn {
+    align-self: flex-end;
+  }
+
+  .popup-body .form-group input,
+  .popup-body .form-group textarea {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+
+  .popup-body .btn {
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+}

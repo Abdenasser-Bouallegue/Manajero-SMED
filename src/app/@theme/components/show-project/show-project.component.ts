@@ -1,8 +1,10 @@
+
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SmedService } from './../../../../services/smed.service';
 import { projectSmed } from '../../../../models/projectSmed';
-import { task } from '../../../../models/task';  // Import the task model
+import { task } from '../../../../models/task';
+
 
 @Component({
   selector: 'ngx-show-project',
@@ -10,10 +12,21 @@ import { task } from '../../../../models/task';  // Import the task model
   styleUrls: ['./show-project.component.scss']
 })
 export class ShowProjectComponent implements OnInit {
+  taskToUpdate: task = {
+    idTask: '',
+    taskName :'',
+    desc: '',
+    estimatedTime: null,
+    deadline: null,
+    employer: null,
+    taskType: null,
+  };
   projectDetails: projectSmed | undefined;
   tasks: task[] = [];  // Assurez-vous que c'est le bon type
   isLoading: boolean = true;
   projectId: string | null = null;
+  showPopup: boolean = false;
+  isPopupUpdateOpen = false;
 
   constructor(
     private smedService: SmedService,
@@ -264,6 +277,31 @@ export class ShowProjectComponent implements OnInit {
       },
       (error) => {
         console.error('Error deleting task:', error);
+      }
+    );
+  }
+  openPopupUpdate(task: task): void {
+    this.showPopup = true;
+    this.taskToUpdate = { ...task };
+    this.isPopupUpdateOpen = true;
+  }
+
+  closePopupUpdate(): void {
+    this.showPopup = false;
+  }
+
+
+  updateTask(): void {
+    console.log(this.taskToUpdate);
+
+    this.smedService.updateTask(this.taskToUpdate.idTask, this.taskToUpdate).subscribe(
+      (updatedTask: task) => {
+        console.log('Tutorial updated successfully:', updatedTask);
+        this.showPopup = false;
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error updating tutorial:', error);
       }
     );
   }
