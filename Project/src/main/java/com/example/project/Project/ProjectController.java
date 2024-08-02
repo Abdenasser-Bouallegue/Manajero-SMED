@@ -1,8 +1,7 @@
-package com.example.project;
+package com.example.project.Project;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +26,7 @@ public class ProjectController {
     }
     @GetMapping("/getAllProject")
     public List<Project> getAllProjects() {
+
         return projectService.getAllProjects();
     }
     @GetMapping("/getProjectById/{id}")
@@ -46,7 +46,10 @@ public class ProjectController {
 
         projectService.deleteProject(id);
     }
-
+    @GetMapping("/{idProject}/tasks")
+    public List<Task> getTasksByProjectId(@PathVariable String idProject) {
+        return projectService.getTasksByProjectId(idProject);
+    }
 
 
 

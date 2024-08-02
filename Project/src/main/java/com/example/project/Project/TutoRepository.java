@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.Project;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

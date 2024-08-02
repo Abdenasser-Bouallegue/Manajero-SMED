@@ -1,15 +1,15 @@
-package com.example.project;
+package com.example.project.Project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProjectImpService implements IProjectService {
     @Autowired
     private ProjectRepository projectRepository;
+    private TaskRepository taskRepository;
 
 
     @Override
@@ -33,6 +33,20 @@ public class ProjectImpService implements IProjectService {
     public void deleteProject(String id) {
 
         projectRepository.deleteById(id);
+    }
+
+    @Autowired
+    public void ProjectService(ProjectRepository projectRepository, TaskRepository taskRepository) {
+        this.projectRepository = projectRepository;
+        this.taskRepository = taskRepository;
+    }
+
+    public List<Task> getTasksByProjectId(String idProject) {
+        Project project = projectRepository.findById(idProject).orElse(null);
+        if (project != null) {
+            return taskRepository.findByProjectId(idProject);
+        }
+        return null;
     }
 
 

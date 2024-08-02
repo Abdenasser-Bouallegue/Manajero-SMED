@@ -1,9 +1,8 @@
-package com.example.project;
+package com.example.project.Project;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -11,26 +10,24 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
-@Getter
-@Setter
+import java.util.List;
+import java.util.Set;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value = "Project")
-@Data
 @Builder
+@Document(collection = "Project")
 public class Project implements Serializable {
     @Id
     private String idProject;
+
     @Field(name="project-name")
     private String nameProject;
-    private String projectOwner="IPact";
-    private LocalDateTime createdDate=LocalDateTime.now();
 
+    private String projectOwner = "IPact";
+    private LocalDateTime createdDate = LocalDateTime.now();
     private Long estimatedTime;
-
-    private  Date deadline;
-
-
-
-
+    private Date deadline;
+    private List<Task> taskIds;
 }

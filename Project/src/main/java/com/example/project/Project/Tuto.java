@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.Project;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
