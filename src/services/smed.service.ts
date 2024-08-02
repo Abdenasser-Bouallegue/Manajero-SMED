@@ -75,8 +75,7 @@ export class SmedService {
     const url = `${this.apiUrlTask}/getTaskById/${idTask}`;
     return this.http.get<task>(url);
   }
-  getTasksByProjectId(idProject: string): Observable<Task[]> {
-    const url = `${this.apiUrl}/${idProject}/tasks`;
-    return this.http.get<Task[]>(url);
+  getTasksByProjectId(idProject: string): Observable<task[]> {
+    return this.http.get<task[]>(`${this.apiUrl}/${idProject}/tasks`);
   }
 }

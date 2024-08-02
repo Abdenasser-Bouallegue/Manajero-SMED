@@ -7,8 +7,8 @@ export interface task {
   desc: string;
   createdDate?: Date;
   estimatedTime: number;
-  Deadline: Date;
-  Employer: string;
+  deadline: Date;
+  employer: string;
   taskType:taskType;
   projectId?: string;
 }

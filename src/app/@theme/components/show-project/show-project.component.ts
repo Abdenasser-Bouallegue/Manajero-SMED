@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SmedService } from './../../../../services/smed.service';
 import { projectSmed } from '../../../../models/projectSmed';
+import { task } from '../../../../models/task';  // Import the task model
 
 @Component({
   selector: 'ngx-show-project',
@@ -9,8 +10,10 @@ import { projectSmed } from '../../../../models/projectSmed';
   styleUrls: ['./show-project.component.scss']
 })
 export class ShowProjectComponent implements OnInit {
-  projectDetails: projectSmed;
+  projectDetails: projectSmed | undefined;
+  tasks: task[] = [];  // Assurez-vous que c'est le bon type
   isLoading: boolean = true;
+  projectId: string | null = null;
 
   constructor(
     private smedService: SmedService,
@@ -19,12 +22,12 @@ export class ShowProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const idProject = params.get('id');
-
-      if (idProject) {
-        this.getProject(idProject);
+      this.projectId = params.get('id');
+      if (this.projectId) {
+        this.getProject(this.projectId);
+        this.getTasks(this.projectId);
       } else {
-        console.error('Invalid project ID:', idProject);
+        console.error('Invalid project ID:', this.projectId);
         this.isLoading = false;
       }
     });
@@ -41,6 +44,17 @@ export class ShowProjectComponent implements OnInit {
       (error) => {
         console.error('Error fetching project', error);
         this.isLoading = false;
+      }
+    );
+  }
+
+  getTasks(idProject: string): void {
+    this.smedService.getTasksByProjectId(idProject).subscribe(
+      (tasks: task[]) => {
+        this.tasks = tasks;
+      },
+      (error) => {
+        console.error('Error fetching tasks', error);
       }
     );
   }
@@ -205,7 +219,6 @@ export class ShowProjectComponent implements OnInit {
         const target = e.currentTarget as HTMLElement;
         target.parentElement?.classList.toggle("active");
       };
-
       mask.addEventListener("touchstart", handleMaskClick);
       mask.addEventListener("click", handleMaskClick);
     });
@@ -234,5 +247,24 @@ export class ShowProjectComponent implements OnInit {
 
       item.addEventListener("click", handleNavItemClick);
     });
+  }
+  //task
+  confirmDelete(idTask: string): void {
+    const confirmed = confirm('Are you sure you want to delete this Task?');
+    if (confirmed) {
+      this.deleteTask(idTask);
+    }
+  }
+
+  deleteTask(idTask: string): void {
+    this.smedService.deleteTask(idTask).subscribe(
+      () => {
+        console.log('task deleted successfully');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error deleting task:', error);
+      }
+    );
   }
 }

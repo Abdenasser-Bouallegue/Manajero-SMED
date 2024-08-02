@@ -1,24 +1,68 @@
 <!-- src/app/pages/task/task.component.html -->
 <form [formGroup]="TaskForm" (ngSubmit)="addTask()">
-  <label for="taskName">Task Name:</label>
-  <input id="taskName" formControlName="taskName">
+  <!-- Task Name -->
+  <div>
+    <label for="taskName">Task Name:</label>
+    <input id="taskName" formControlName="taskName" type="text">
+    <div *ngIf="TaskForm.get('taskName')?.invalid && TaskForm.get('taskName')?.touched" class="error-message">
+      <small *ngIf="TaskForm.get('taskName')?.errors?.['required']">Task Name is required.</small>
+      <small *ngIf="TaskForm.get('taskName')?.errors?.['minlength']">Task Name must be at least 5 characters long.</small>
+      <small *ngIf="TaskForm.get('taskName')?.errors?.['maxlength']">Task Name cannot be more than 30 characters long.</small>
+    </div>
+  </div>
 
-  <label for="desc">Description:</label>
-  <textarea id="desc" formControlName="desc"></textarea>
+  <!-- Description -->
+  <div>
+    <label for="desc">Description:</label>
+    <textarea id="desc" formControlName="desc"></textarea>
+    <div *ngIf="TaskForm.get('desc')?.invalid && TaskForm.get('desc')?.touched" class="error-message">
+      <small *ngIf="TaskForm.get('desc')?.errors?.['required']">Description is required.</small>
+      <small *ngIf="TaskForm.get('desc')?.errors?.['minlength']">Description must be at least 5 characters long.</small>
+      <small *ngIf="TaskForm.get('desc')?.errors?.['maxlength']">Description cannot be more than 300 characters long.</small>
+    </div>
+  </div>
 
-  <label for="estimatedTime">Estimated Time:</label>
-  <input id="estimatedTime" type="number" formControlName="estimatedTime">
+  <!-- Estimated Time -->
+  <div>
+    <label for="estimatedTime">Estimated Time:</label>
+    <input id="estimatedTime" type="number" formControlName="estimatedTime">
+    <div *ngIf="TaskForm.get('estimatedTime')?.invalid && TaskForm.get('estimatedTime')?.touched" class="error-message">
+      <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['required']">Estimated Time is required.</small>
+      <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['min']">Estimated Time must be at least 1.</small>
+      <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['max']">Estimated Time cannot be more than 100.</small>
+    </div>
+  </div>
 
-  <label for="Deadline">Deadline:</label>
-  <input id="Deadline" type="date" formControlName="Deadline">
+  <!-- Deadline -->
+  <div>
+    <label for="deadline">Deadline:</label>
+    <input id="deadline" type="date" formControlName="deadline">
+    <div *ngIf="TaskForm.get('deadline')?.invalid && TaskForm.get('deadline')?.touched" class="error-message">
+      <small *ngIf="TaskForm.get('deadline')?.errors?.['required']">Deadline is required.</small>
+    </div>
+  </div>
 
-  <label for="Employer">Employer:</label>
-  <input id="Employer" formControlName="Employer">
+  <!-- Employer -->
+  <div>
+    <label for="employer">Employer:</label>
+    <input id="employer" formControlName="employer" type="text">
+    <div *ngIf="TaskForm.get('employer')?.invalid && TaskForm.get('employer')?.touched" class="error-message">
+      <small *ngIf="TaskForm.get('employer')?.errors?.['required']">Employer is required.</small>
+      <small *ngIf="TaskForm.get('employer')?.errors?.['minlength']">Employer must be at least 5 characters long.</small>
+      <small *ngIf="TaskForm.get('employer')?.errors?.['maxlength']">Employer cannot be more than 50 characters long.</small>
+    </div>
+  </div>
 
-  <label for="taskType">Task Type:</label>
-  <select id="taskType" formControlName="taskType">
-    <option *ngFor="let type of taskTypes" [value]="type">{{ type }}</option>
-  </select>
+  <!-- Task Type -->
+  <div>
+    <label for="taskType">Task Type:</label>
+    <select id="taskType" formControlName="taskType">
+      <option *ngFor="let type of taskTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
 
-  <button type="submit">Add Task</button>
+  <!-- Submit Button -->
+  <div>
+    <button type="submit" [disabled]="TaskForm.invalid">Add Task</button>
+  </div>
 </form>
