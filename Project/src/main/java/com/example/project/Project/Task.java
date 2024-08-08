@@ -28,8 +28,8 @@ public class Task implements Serializable {
     private Long estimatedTime;
     private Date deadline;
     private String employer;
-
     @Enumerated(EnumType.STRING)
     private taskType taskType;
     private String projectId;
+    private  Status status= Status.valueOf("StandBy");
 }
