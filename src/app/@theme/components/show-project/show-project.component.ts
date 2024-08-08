@@ -20,6 +20,7 @@ export class ShowProjectComponent implements OnInit {
     deadline: null,
     employer: null,
     taskType: null,
+    status:null
   };
   projectDetails: projectSmed | undefined;
   tasks: task[] = [];  // Assurez-vous que c'est le bon type

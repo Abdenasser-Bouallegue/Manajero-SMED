@@ -1,3 +1,24 @@
+<div *ngIf="showPopup" class="popup-overlay">
+  <div class="popup-content" >
+    <div class="popup-header" >
+      <h3>Stopwatch</h3>
+      <button (click)="closePopupUpdate()" class="close-btn">&times;</button>
+    </div>
+    <div class="popup-body">
+      <div class="task-detail-item">
+        <span class="task-detail-label">Countdown:</span>
+        <div class="countdown-circle">
+          <span class="countdown-time">{{ countdownDisplay }}</span>
+        </div>
+
+      </div>
+    </div>
+    <button (click)="updateTaskStatus2()" class="done">Done</button>
+  </div>
+
+</div>
+<!---->
+
 <div class="task-details" *ngIf="taskDetails">
   <h2>Task Details</h2>
   <div *ngIf="isLoading" class="text-info">Loading task details...</div>
@@ -29,6 +50,13 @@
     <div class="task-detail-item">
       <span class="task-detail-label">Project ID:</span>
       <span class="task-detail-value">{{ taskDetails.projectId }}</span>
+    </div>
+    <div class="task-detail-item">
+      <span class="task-detail-label">Status:</span>
+      <span class="task-detail-value">{{ taskDetails.status }}</span>
+    </div>
+    <div class="task-detail-item">
+      <button (click)="updateTaskStatus()" (click)="openPop()" class="btn btn-primary">Take This Task</button>
     </div>
   </ng-container>
   <div *ngIf="!isLoading && !taskDetails" class="text-danger">Task details not found.</div>

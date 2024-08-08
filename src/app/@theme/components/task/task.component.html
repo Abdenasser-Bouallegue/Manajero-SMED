@@ -24,12 +24,12 @@
 
   <!-- Estimated Time -->
   <div>
-    <label for="estimatedTime">Estimated Time:</label>
+    <label for="estimatedTime">Estimated Time (Minutes):</label>
     <input id="estimatedTime" type="number" formControlName="estimatedTime">
     <div *ngIf="TaskForm.get('estimatedTime')?.invalid && TaskForm.get('estimatedTime')?.touched" class="error-message">
       <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['required']">Estimated Time is required.</small>
       <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['min']">Estimated Time must be at least 1.</small>
-      <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['max']">Estimated Time cannot be more than 100.</small>
+      <small *ngIf="TaskForm.get('estimatedTime')?.errors?.['max']">Estimated Time cannot be more than 10.</small>
     </div>
   </div>
 

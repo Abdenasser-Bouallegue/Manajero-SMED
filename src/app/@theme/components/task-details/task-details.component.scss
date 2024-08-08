@@ -63,3 +63,130 @@
     }
   }
 }
+.task-detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .task-detail-label {
+    flex: 1;
+    font-weight: bold;
+  }
+
+  .countdown-circle {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    border-radius: 50%;
+    border: 5px solid #3f51b5; /* Adjust the border color as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Adjust the background color as needed */
+    position: relative;
+  }
+
+  .countdown-time {
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #3f51b5; /* Adjust the text color as needed */
+    position: absolute;
+  }
+}
+
+/* Overlay to cover the entire screen */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content box */
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Adjust as needed */
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Header of the popup */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+/* Body of the popup */
+.popup-body {
+  .task-detail-item {
+    margin-bottom: 20px;
+
+    .countdown-circle {
+      width: 120px; /* Adjust size */
+      height: 120px; /* Adjust size */
+      border-radius: 50%;
+      border: 5px solid #3f51b5; /* Circle border color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5; /* Background inside circle */
+      margin: 0 auto; /* Center the circle */
+      position: relative;
+
+      .countdown-time {
+        font-size: 24px; /* Font size of the countdown time */
+        color: #3f51b5; /* Text color */
+        position: absolute;
+      }
+    }
+
+    button {
+      margin: 5px; /* Spacing between buttons */
+      width: 100%; /* Full width buttons */
+    }
+  }
+}
+
+button.done {
+  padding: 10px 20px;
+  background-color: #dc3545; /* Bootstrap danger color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+button.done:hover {
+  background-color: #c82333; /* Darker shade for hover */
+}

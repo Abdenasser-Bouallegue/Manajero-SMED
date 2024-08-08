@@ -25,7 +25,7 @@ export class TaskComponent implements OnInit {
     this.TaskForm = this.fb.group({
       taskName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
       desc: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(300)]],
-      estimatedTime: [0, [Validators.required, Validators.min(1), Validators.max(100)]],
+      estimatedTime: [0, [Validators.required, Validators.min(1), Validators.max(10)]],
       deadline: [null, Validators.required], // Modifié pour accepter les dates nulles
       employer: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       taskType: [taskType.internal, Validators.required], // Ajustez au besoin

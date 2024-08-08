@@ -446,3 +446,68 @@
     font-size: 0.7rem;
   }
 }
+.badge-blue {
+  background-color: #007bff; /* Blue */
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.badge-red {
+  background-color: #dc3545; /* Red */
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+
+.badge-green {
+  background-color: #28a745; /* Green */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* Container for action icons */
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for action links and buttons */
+.actions a, .actions button {
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  border: none; /* Ensure no border */
+  background: none; /* Ensure no background */
+}
+
+/* Space between buttons */
+.edit-button {
+  margin-right: 7px; /* 7px space to the right of the edit button */
+}
+
+/* Style for icons */
+.ico {
+  display: inline-block;
+  width: 1.5em; /* Adjust size as needed */
+  height: 1.5em;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  padding: 0.2em; /* Adjust padding if necessary */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+/* Hover effect for icons */
+.ico:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
+}
+
+/* Active effect for icons */
+.ico:active {
+  transform: scale(1); /* Reset scale on active */
+  box-shadow: none; /* Remove shadow on active */
+}
+

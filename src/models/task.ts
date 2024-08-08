@@ -1,3 +1,4 @@
+import { Status } from "./Status";
 import { taskType } from "./taskType";
 
 export interface task {
@@ -11,4 +12,5 @@ export interface task {
   employer: string;
   taskType:taskType;
   projectId?: string;
+  status:Status;
 }
