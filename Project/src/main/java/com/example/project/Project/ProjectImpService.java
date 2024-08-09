@@ -3,6 +3,7 @@ package com.example.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -47,6 +48,9 @@ public class ProjectImpService implements IProjectService {
             return taskRepository.findByProjectId(idProject);
         }
         return null;
+    }
+    public List<ProjectStat> countByDate() {
+        return projectRepository.countByDate();
     }
 
 

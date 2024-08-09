@@ -1,5 +1,6 @@
 package com.example.project.Project;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
@@ -28,6 +29,7 @@ public class Project implements Serializable {
     private String projectOwner = "IPact";
     private LocalDateTime createdDate = LocalDateTime.now();
     private Long estimatedTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date deadline;
     private List<Task> taskIds;
 }

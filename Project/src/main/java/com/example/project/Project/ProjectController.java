@@ -3,8 +3,12 @@ package com.example.project.Project;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -49,6 +53,10 @@ public class ProjectController {
     @GetMapping("/{idProject}/tasks")
     public List<Task> getTasksByProjectId(@PathVariable String idProject) {
         return projectService.getTasksByProjectId(idProject);
+    }
+    @GetMapping("/countbydate")
+    public List<ProjectStat> countByDate() {
+        return projectService.countByDate();
     }
 
 

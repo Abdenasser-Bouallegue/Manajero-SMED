@@ -1,5 +1,6 @@
 package com.example.project.Project;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IProjectService {
@@ -9,4 +10,5 @@ public interface IProjectService {
   public Project update( Project project);
   public void deleteProject(String id);
   List<Task> getTasksByProjectId(String idProject);
+  public  List<ProjectStat> countByDate();
 }
