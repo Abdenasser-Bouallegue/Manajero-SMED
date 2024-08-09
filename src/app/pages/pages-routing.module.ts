@@ -12,6 +12,7 @@ import { ShowProjectComponent } from '../@theme/components/show-project/show-pro
 import { NewTutoComponent } from '../@theme/components/new-tuto/new-tuto.component';
 import { TaskComponent } from '../@theme/components/task/task.component';
 import { TaskDetailsComponent } from '../@theme/components/task-details/task-details.component';
+import { DashSMEDComponent } from '../@theme/components/dash-smed/dash-smed.component';
 
 const routes: Routes = [{
   path: '',
@@ -66,6 +67,14 @@ const routes: Routes = [{
         title: 'Show SMED Project'
       },
     },
+    {
+      path: 'lean/smed/dash',
+      component: DashSMEDComponent,
+      data: {
+        title: 'Show SMED Project'
+      },
+    },
+
     {
       path: 'dashboard',
       component: ECommerceComponent,

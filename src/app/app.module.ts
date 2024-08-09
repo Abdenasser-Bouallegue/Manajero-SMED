@@ -24,9 +24,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskComponent } from './@theme/components/task/task.component';
 import { TaskDetailsComponent } from './@theme/components/task-details/task-details.component';
+import { DashSMEDComponent } from './@theme/components/dash-smed/dash-smed.component';
+import { ITypeProjectComponent } from '../itype-project/itype-project.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TaskDetailsComponent],
+  declarations: [AppComponent, TaskComponent, TaskDetailsComponent, DashSMEDComponent, ITypeProjectComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
