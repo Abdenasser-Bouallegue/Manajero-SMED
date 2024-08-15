@@ -27,5 +27,8 @@ public class TaskImpService implements ITaskService {
 
         taskRepository.deleteById(id);
     }
+    public List<Task> getAllTasks() {
 
+        return taskRepository.findAll();
+    }
 }

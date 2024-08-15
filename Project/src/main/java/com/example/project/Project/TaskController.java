@@ -36,5 +36,10 @@ private  ITaskService iTaskService;
 
         iTaskService.deleteTask(id);
     }
+    @GetMapping("/getAllTasks")
+    public List<Task> getAllTasks() {
+
+        return iTaskService.getAllTasks();
+    }
 
 }

@@ -8,4 +8,5 @@ public interface ITaskService {
     Task getTaskById(String id);
     Task update(Task task);
     public void deleteTask(String id);
+    public List<Task> getAllTasks();
 }
