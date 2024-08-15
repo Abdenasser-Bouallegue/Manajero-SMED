@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { projectSmed } from '../models/projectSmed';
 import { Observable } from 'rxjs';
 import { task } from '../models/task';
-import { IProjectStat } from '../app/@theme/components/inter/project.interface.ts.service';
 import { map } from 'rxjs/operators';
 
 
@@ -81,11 +80,16 @@ export class SmedService {
   getTasksByProjectId(idProject: string): Observable<task[]> {
     return this.http.get<task[]>(`${this.apiUrl}/${idProject}/tasks`);
   }
-
-  countProjectByDeadline(): Observable<IProjectStat[]> {
-    const url = `${this.apiUrl}/countbydate`;
-    return this.http.get<IProjectStat[]>(url);
-  }
-
+//archiver
+archived(projet: projectSmed): Observable<any> {
+  return this.http.put(`${this.apiUrl}/SetArchive/${projet.idProject}`, projet, {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  });
+}
+unarchived(projet: projectSmed): Observable<any> {
+  return this.http.put(`${this.apiUrl}/UnArchived/${projet.idProject}`, projet, {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  });
+}
 
 }

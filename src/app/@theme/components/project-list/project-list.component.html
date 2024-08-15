@@ -14,6 +14,9 @@
         <a [routerLink]="['/pages/lean/smed/new']" routerLinkActive="router-link-active">
           <button class="create-project-btn">Create New Project</button>
         </a>
+        <a>
+          <button class="archive-project-btn"><span class="ic--baseline-archive"></span>Archived</button>
+        </a>
         <div class="settings-widget">
           <div class="settings-inner-blk p-0">
             <div class="comman-space pb-0">
@@ -47,8 +50,8 @@
                       <span class="lucide--edit" (click)="openPopupUpdate(project)"></span>
                     </td>
                     <td>
-                      <button (click)="confirmDelete(project.idProject)" class="delete-button">
-                        <span class="material-symbols--delete-outline"></span>
+                      <button (click)="archived(project)" class="delete-button">
+                        <span class="ic--baseline-archive"></span>
                       </button>
                     </td>
                   </tr>

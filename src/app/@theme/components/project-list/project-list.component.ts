@@ -68,7 +68,8 @@ export class ProjectListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProjects();
+
+    this.fetchProject();
   }
 
   getProjects(): void {
@@ -94,5 +95,33 @@ export class ProjectListComponent implements OnInit {
       }
     );
   }
+  //archive
+  archived(projet: projectSmed): void {
+    const confirmation = confirm('Are you sure you want to archive this project?');
+
+    if (confirmation) {
+        projet.archived = true;
+        this.SmedService.archived(projet).subscribe(
+            () => {
+                this.fetchProject();
+            },
+            (error) => {
+                console.error('Error archiving project:', error);
+            }
+        );
+    }
+}
+
+fetchProject(): void {
+    this.SmedService.getAllProjectSMED().subscribe(
+        (projets: projectSmed[]) => {
+            this.projects = projets.filter(projet => !projet.archived);
+        },
+        (error) => {
+            console.error('Error fetching projects:', error);
+        }
+    );
+}
+
 
 }

@@ -5,4 +5,5 @@ export interface projectSmed {
   createdDate?: Date;
   estimatedTime: number;
   deadline?: Date;
+  archived?: boolean;
 }
