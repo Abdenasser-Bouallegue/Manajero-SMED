@@ -52,6 +52,20 @@ public class ProjectImpService implements IProjectService {
     public List<ProjectStat> countByDate() {
         return projectRepository.countByDate();
     }
+    @Override
+    public void archived(String idProject) {
+        Project project = projectRepository.findById(idProject).get();
+        project.setArchived(true);
+        projectRepository.save(project);
 
+    }
+
+    @Override
+    public void unarchived(String idProject) {
+        Project p = projectRepository.findById(idProject).get();
+        p.setArchived(false);
+        projectRepository.save(p);
+
+    }
 
 }

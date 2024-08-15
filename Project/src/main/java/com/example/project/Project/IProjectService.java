@@ -11,4 +11,6 @@ public interface IProjectService {
   public void deleteProject(String id);
   List<Task> getTasksByProjectId(String idProject);
   public  List<ProjectStat> countByDate();
+  void archived(String idProject);
+  void unarchived(String idProject);
 }

@@ -31,5 +31,6 @@ public class Project implements Serializable {
     private Long estimatedTime;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date deadline;
+    private boolean archived=false;
     private List<Task> taskIds;
 }

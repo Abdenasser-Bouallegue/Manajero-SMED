@@ -58,7 +58,17 @@ public class ProjectController {
     public List<ProjectStat> countByDate() {
         return projectService.countByDate();
     }
+    @PutMapping("/SetArchive/{id}")
+    public void Archived(@PathVariable String id) {
+        projectService.archived(id);
 
+    }
+
+    @PutMapping("/UnArchived/{id}")
+    public void unarchived(@PathVariable String id) {
+        projectService.unarchived(id);
+
+    }
 
 
 }
