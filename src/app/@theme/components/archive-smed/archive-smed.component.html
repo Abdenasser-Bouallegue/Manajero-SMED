@@ -1,0 +1,68 @@
+<!-- Instructor Dashboard -->
+<div class="col-xl-9 col-lg-8 col-md-12">
+  <div class="tak-instruct-group">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="settings-widget">
+          <div class="settings-inner-blk p-0">
+            <div class="sell-course-head comman-space">
+              <h3 class="why-title">SMED Projects Archived</h3>
+              <p class="why-text">Welcome to our Archived Projects SMED</p>
+            </div>
+          </div>
+        </div>
+        <a [routerLink]="['/pages/lean/smed/list']" routerLinkActive="router-link-active">
+          <button class="create-project-btn">Projects List</button>
+        </a>
+        <div class="settings-widget">
+          <div class="settings-inner-blk p-0">
+            <div class="comman-space pb-0">
+              <!-- Instructor Users-->
+              <table class="table table-nowrap mb-0">
+                <thead>
+                  <tr>
+                    <th>Project Name</th>
+                    <th>Project Owner</th>
+                    <th>Create AT</th>
+                    <th>Deadline</th>
+                    <th>Estimated Time</th>
+                    <th>Actions</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let project of projects">
+                    <td>{{ project.nameProject }}</td>
+                    <td>{{ project.projectOwner }}</td>
+                    <td>{{ project.createdDate | date:'short' }}</td>
+                    <td>{{ project.deadline | date:'short' }}</td>
+                    <td>{{ project.estimatedTime }}</td>
+                    <td>
+                      <a [routerLink]="['/pages/lean/smed/show', project.idProject]">
+                        <span class="mdi--show"></span>
+                      </a>
+                    </td>
+                    <td>
+                      <button (click)="Unarchived(project)" >
+                        <span class="material-symbols--unarchive-outline"></span>
+                      </button>
+                    </td>
+                    <td>
+                      <button (click)="confirmDelete(project.idProject)" class="delete-button">
+                        <span class="material-symbols--delete-outline"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

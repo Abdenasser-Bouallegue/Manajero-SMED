@@ -26,9 +26,10 @@ import { TaskComponent } from './@theme/components/task/task.component';
 import { TaskDetailsComponent } from './@theme/components/task-details/task-details.component';
 import { DashSMEDComponent } from './@theme/components/dash-smed/dash-smed.component';
 import { ITypeProjectComponent } from '../itype-project/itype-project.component';
+import { ArchiveSMEDComponent } from './@theme/components/archive-smed/archive-smed.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, TaskDetailsComponent, DashSMEDComponent, ITypeProjectComponent],
+  declarations: [AppComponent, TaskComponent, TaskDetailsComponent, DashSMEDComponent, ITypeProjectComponent, ArchiveSMEDComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

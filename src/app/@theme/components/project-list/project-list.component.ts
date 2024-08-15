@@ -77,24 +77,7 @@ export class ProjectListComponent implements OnInit {
       this.projects = data;
     });
   }
-  confirmDelete(idProject: number): void {
-    const confirmed = confirm('Are you sure you want to delete this project?');
-    if (confirmed) {
-      this.deleteProjectSmed(idProject);
-    }
-  }
 
-  deleteProjectSmed(idProject: number): void {
-    this.SmedService.deleteProjectSMED(idProject).subscribe(
-      () => {
-        console.log('Project deleted successfully');
-        window.location.reload();
-      },
-      (error) => {
-        console.error('Error deleting project:', error);
-      }
-    );
-  }
   //archive
   archived(projet: projectSmed): void {
     const confirmation = confirm('Are you sure you want to archive this project?');

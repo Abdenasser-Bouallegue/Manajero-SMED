@@ -80,6 +80,9 @@ export class SmedService {
   getTasksByProjectId(idProject: string): Observable<task[]> {
     return this.http.get<task[]>(`${this.apiUrl}/${idProject}/tasks`);
   }
+  getAllTasks(): Observable<task[]> {
+    return this.http.get<task[]>(`${this.apiUrlTask}/getAllTasks`);
+  }
 //archiver
 archived(projet: projectSmed): Observable<any> {
   return this.http.put(`${this.apiUrl}/SetArchive/${projet.idProject}`, projet, {

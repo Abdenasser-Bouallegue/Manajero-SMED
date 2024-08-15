@@ -13,6 +13,7 @@ import { NewTutoComponent } from '../@theme/components/new-tuto/new-tuto.compone
 import { TaskComponent } from '../@theme/components/task/task.component';
 import { TaskDetailsComponent } from '../@theme/components/task-details/task-details.component';
 import { DashSMEDComponent } from '../@theme/components/dash-smed/dash-smed.component';
+import { ArchiveSMEDComponent } from '../@theme/components/archive-smed/archive-smed.component';
 
 const routes: Routes = [{
   path: '',
@@ -63,6 +64,13 @@ const routes: Routes = [{
     {
       path: 'lean/smed/task/show/:id',
       component: TaskDetailsComponent,
+      data: {
+        title: 'Show SMED Project'
+      },
+    },
+    {
+      path: 'lean/smed/archive',
+      component: ArchiveSMEDComponent,
       data: {
         title: 'Show SMED Project'
       },

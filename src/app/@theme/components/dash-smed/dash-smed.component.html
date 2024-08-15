@@ -1,16 +1,44 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="card instructor-card">
-      <div class="card-header">
-        <h4>Project by Deadline</h4>
-      </div>
-      <div class="card-body">
-        <div id="instructor_chart">
-          <div class="chart-container">
-            <canvas id="MyChartBar"></canvas>
+<div class="dashboard">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Card for Bar Chart -->
+      <div class="card main-chart-card">
+        <div class="card-header">
+          <h4>Project by Deadline</h4>
+        </div>
+        <div class="card-body">
+          <div id="instructor_chart">
+            <div class="chart-container">
+              <canvas id="MyChartBar"></canvas>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-md-4">
+      <!-- Smaller Chart Cards -->
+      <div class="card smaller-chart-card">
+        <div class="card-header">
+          <h5>Task Status</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="MyChartStatus"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card smaller-chart-card mt-4">
+        <div class="card-header">
+          <h5>Task Type Distribution</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="MyChartTaskType"></canvas>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
